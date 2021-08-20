@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="alert-box" id="alert">
+        <p id="alertBox">Alert Box</p>
+        <!--알림창 닫기 ver1-->
+        <button onclick="알림창닫기()"> X </button>
+        <!--알림창 닫기 ver2-->
+        <button id="closeBtn"> X2 </button> <!--id값은 () 붙이지 않는다-->
+    </div>
+
+    <!--button 누르면 내용 바뀌기 ver1-->
+    <button onclick="알림창변화1()">알림창1</button>
+    <button onclick="알림창변화2()">알림창2</button>
+
+    <!--button 누르면 내용 바뀌기 ver2-->
+    <button onclick="알림창변화3('내용을 입력하세요.')">알림창3</button>
+    <button onclick="알림창변화3('비밀번호를 변경하세요.')">알림창4</button>
+    
+    <script>
+        //알림창 닫기 ver1
+        function 알림창닫기() {
+            document.getElementById('alert').style.display = 'none';
+        }
+
+        //알림창 닫기 ver2(addEventListener 사용)
+        //id값은 document.getElementById('???') ???에 들어가는 값
+        document.getElementById('closeBtn').addEventListener('click', function(){
+            document.getElementById('alert').style.display = 'none';
+        });
+
+        function 알림창변화1() {
+            //1. 내용 변화
+            document.getElementById('alertBox').innerHTML = '아이디를 입력하세요.';
+            //2. 알림창 활성화
+            document.getElementById('alert').style.display = 'block';
+        }
+
+        function 알림창변화2() {
+            //1. 내용 변화
+            document.getElementById('alertBox').innerHTML = '비밀번호를 입력하세요.';
+            //2. 알림창 활성화
+            document.getElementById('alert').style.display = 'block';
+        }
+
+        function 알림창변화3(element) {
+            //반복되는 부분만 변경(구멍)
+            document.getElementById('alertBox').innerHTML = element; /*''붙이지 말 것*/
+            document.getElementById('alert').style.display = 'block';
+        }
+        
+        
+    </script>
+</body>
+</html>
